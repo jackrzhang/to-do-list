@@ -23,7 +23,7 @@
 
 <body>
     <div class="wrap">
-        
+        <?php echo test ?>
     </div>
 </body>
 
