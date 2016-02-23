@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>To-Do List</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Simple to-do list application.">
     <meta name="author" content="jackrzhang">
 
-    <title>poke</title>
+    <title>To-Do Lists | jackrzhang</title>
 
+    <!-- Custom Styles -->
     <link href="css/styles.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -23,8 +24,22 @@
 
 <body>
     <div class="wrap">
-        
+        <div class="task-list">
+            <ul>
+                <?php require_once('../core/ToDoLists.php'); ?>
+            </ul>
+        </div>
+        <form class="add-new-task" autocomplete="off">
+            <input type="text" name="new-task" placeholder="Add a new item..." />
+        </form>
     </div>
+
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- Application Javascript -->
+    <script src="js/app.js"></script>
 </body>
 
 </html>
