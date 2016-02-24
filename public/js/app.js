@@ -4,18 +4,13 @@ function add_task() {
         var new_task = $('.add-new-task input[name=new-task]').val();
 
         if(new_task != ''){
-            post_dataType_html('http://' + 'to-do-lists' + '.sites.dev/' + 'ajax/add-task', { task: new_task },
+            post_dataType_html('../ajax/add-task', { task: new_task },
                 function(response) { 
                     console.log(response);
                     //$(response).appendTo('.task-list ul').hide().fadeIn();
                 }
-            )
-            /*
-            $.post('includes/add-task.php', { task: new_task }, function( data ) {
-                $(data).appendTo('.task-list ul').hide().fadeIn();
-            });
-            */
-        };
+            );
+        }
         return false; // Ensure that the form does not submit twice
     });
 }
@@ -38,7 +33,7 @@ function post_dataType_html(endpoint, data, callback) {
         },
         success: function(response) {
             if (callback && typeof(callback) === 'function') {
-                console.log('AJAX success.')
+                console.log('AJAX success.');
                 callback(response);
             } 
         }
