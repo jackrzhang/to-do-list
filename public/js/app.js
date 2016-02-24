@@ -4,24 +4,28 @@ function add_task() {
         var new_task = $('.add-new-task input[name=new-task]').val();
 
         if(new_task != ''){
-            
+            post_dataType_html('http://' + 'to-do-lists' + '.sites.dev/' + 'ajax/add-task', { task: new_task },
+                function(response) { 
+                    console.log(response);
+                    //$(response).appendTo('.task-list ul').hide().fadeIn();
+                }
+            )
             /*
             $.post('includes/add-task.php', { task: new_task }, function( data ) {
                 $(data).appendTo('.task-list ul').hide().fadeIn();
             });
             */
-        }
-        
+        };
         return false; // Ensure that the form does not submit twice
     });
 }
 
-function post(endpoint, data, success_callback, errors_callback) {
+function post_dataType_html(endpoint, data, callback) {
     $.ajax({
         type: 'post',
         url: endpoint + '.php',
         data: data,
-        dataType: 'json',
+        dataType: 'html',
         cache: false,
         error: function(a, b) {
             0 === a.status ?        console.log('Not connected.  Verify Network.') 
@@ -33,15 +37,10 @@ function post(endpoint, data, success_callback, errors_callback) {
             :                       console.log('Uncaught Error.  ' + a.responseText);
         },
         success: function(response) {
-            if (response.errors == 0) {
-                if (success_callback && typeof(success_callback) === 'function') {
-                    success_callback(response);
-                } 
-            } else {
-                if (errors_callback && typeof(errors_callback) === 'function') {
-                    errors_callback(response);
-                } 
-            }
+            if (callback && typeof(callback) === 'function') {
+                console.log('AJAX success.')
+                callback(response);
+            } 
         }
     }); 
 }
