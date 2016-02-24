@@ -6,8 +6,8 @@ function add_task() {
         if(new_task != ''){
             post_dataType_html('../ajax/add-task', { task: new_task },
                 function(response) { 
-                    console.log(response);
-                    //$(response).appendTo('.task-list ul').hide().fadeIn();
+                    //console.log(response);
+                    $(response).appendTo('.task-list ul').hide().fadeIn();
                 }
             );
         }

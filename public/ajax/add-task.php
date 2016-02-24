@@ -13,7 +13,7 @@ $tasks->connect();
 $tasks->add_task($task, $date, $time);
 $result = $tasks->query_task($task, $date, $time);
 
-print_r($result);
+//print_r($result);
 
 mysql_close();
 

@@ -31,8 +31,6 @@ class ToDoLists {
             $task_name = $row['task'];
         }
 
-        print_r($task_name);
-
         $result = [
             'task_id' => $task_id,
             'task_name' => $task_name
