@@ -19,6 +19,28 @@ class ToDoLists {
         mysql_select_db($this->db_name) or die("Could not connect to database!");
     }
 
+    public function close() {
+        mysql_close();
+    }
+
+    public function display_tasks() {
+        $query = mysql_query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
+        $numrows = mysql_num_rows($query);
+
+        if ($numrows > 0) {
+            while ($row = mysql_fetch_assoc($query)) {
+                $task_id = $row['id'];
+                $task_name = $row['task'];
+
+                echo 
+                '<li>
+                    <span>'.$task_name.'</span>
+                    <img id="'.$task_id.'" class="delete-button" width="10px" src="images/close.svg" />
+                </li>';
+            }
+        }
+    }
+
     public function add_task($task, $date, $time) {
         mysql_query("INSERT INTO `tasks` (`id`, `task`, `date`, `time`) VALUES (NULL, '$task', '$date', '$time');");
     }   

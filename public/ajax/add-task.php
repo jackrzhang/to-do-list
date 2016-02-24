@@ -12,11 +12,13 @@ $tasks = new \core\ToDoLists();
 $tasks->connect();
 $tasks->add_task($task, $date, $time);
 $result = $tasks->query_task($task, $date, $time);
+$tasks->close();
 
 //print_r($result);
 
-mysql_close();
-
 // html response
-echo '<li><span>' . $result['task_name'] . '</span><img id="' . $result['task_id'] . '" class="delete-button" width="10px" src="../images/close.svg" /></li>';
-?>
+echo 
+'<li>
+    <span>' . $result['task_name'] . '</span>
+    <img id="' . $result['task_id'] . '" class="delete-button" width="10px" src="../images/close.svg" />
+</li>';

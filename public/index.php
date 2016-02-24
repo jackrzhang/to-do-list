@@ -1,7 +1,7 @@
-<!-- Link to tutorial here: http://mlitzinger.com/articles/simple-to-do-list/ -->
 <?php 
 require_once('../core/ToDoLists.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +32,8 @@ require_once('../core/ToDoLists.php');
                 <?php           
                 $tasks = new \core\ToDoLists();
                 $tasks->connect();
+                $tasks->display_tasks();
+                $tasks->close();
                 ?>
             </ul>
         </div>
