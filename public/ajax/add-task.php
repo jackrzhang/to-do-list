@@ -19,6 +19,6 @@ $tasks->close();
 // html response
 echo 
 '<li>
-    <span>' . $result['task_name'] . '</span>
-    <img id="' . $result['task_id'] . '" class="delete-button" width="10px" src="../images/close.svg" />
+    <span>' . $result[task_name] . '</span>
+    <img id="' . $result[task_id] . '" class="delete-button" width="10px" src="images/close.svg" />
 </li>';

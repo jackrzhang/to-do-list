@@ -43,6 +43,10 @@ class ToDoLists {
 
     public function add_task($task, $date, $time) {
         mysql_query("INSERT INTO `tasks` (`id`, `task`, `date`, `time`) VALUES (NULL, '$task', '$date', '$time');");
+    }
+
+    public function delete_task($task_id) {
+        mysql_query("DELETE FROM `tasks` WHERE `tasks`.`id`=$task_id");
     }   
 
     public function query_task($task, $date, $time) {

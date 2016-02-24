@@ -6,12 +6,26 @@ function add_task() {
         if(new_task != ''){
             post_dataType_html('../ajax/add-task', { task: new_task },
                 function(response) { 
-                    //console.log(response);
                     $(response).appendTo('.task-list ul').hide().fadeIn();
+                    console.log('Task added.');
                 }
             );
         }
         return false; // Ensure that the form does not submit twice
+    });
+}
+
+function delete_task() {
+    $('.delete-button').click(function() {
+        var current_element = $(this);
+        var id = $(this).attr('id');
+
+        post_dataType_html('../ajax/delete-task', { task_id: id },
+            function(response) { 
+                current_element.parent().fadeOut("fast", function() { $(this).remove(); });
+                console.log('Task deleted.');
+            }
+        );
     });
 }
 
@@ -42,4 +56,5 @@ function post_dataType_html(endpoint, data, callback) {
 
 $(document).ready(function() {
     add_task();
+    delete_task();
 });
