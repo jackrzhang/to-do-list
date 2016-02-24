@@ -1,4 +1,9 @@
 
+$(document).ready(function() {
+    add_task();
+    delete_task();
+});
+
 function add_task() {
     $('.add-new-task').submit(function() {
         var new_task = $('.add-new-task input[name=new-task]').val();
@@ -16,7 +21,7 @@ function add_task() {
 }
 
 function delete_task() {
-    $('.delete-button').click(function() {
+    $('.task-list').on('click', '.delete-button', function() {
         var current_element = $(this);
         var id = $(this).attr('id');
 
@@ -53,8 +58,3 @@ function post_dataType_html(endpoint, data, callback) {
         }
     }); 
 }
-
-$(document).ready(function() {
-    add_task();
-    delete_task();
-});
