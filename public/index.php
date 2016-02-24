@@ -1,4 +1,7 @@
-
+<!-- Link to tutorial here: http://mlitzinger.com/articles/simple-to-do-list/ -->
+<?php 
+require_once('../core/ToDoLists.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
     <meta name="description" content="Simple to-do list application.">
     <meta name="author" content="jackrzhang">
 
-    <title>To-Do Lists | jackrzhang</title>
+    <title>To-Do Lists</title>
 
     <!-- Custom Styles -->
     <link href="css/styles.css" rel="stylesheet">
@@ -26,11 +29,14 @@
     <div class="wrap">
         <div class="task-list">
             <ul>
-                <?php require_once('../core/ToDoLists.php'); ?>
+                <?php           
+                $tasks = new \core\ToDoLists();
+                $tasks->connect();
+                ?>
             </ul>
         </div>
         <form class="add-new-task" autocomplete="off">
-            <input type="text" name="new-task" placeholder="Add a new item..." />
+            <input type="text" name="new-task" placeholder="Add a new task..." />
         </form>
     </div>
 

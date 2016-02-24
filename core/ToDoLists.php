@@ -1,10 +1,25 @@
 <?php
 namespace core;
 
-$server = "localhost";
-$db_user = "root";
-$db_pass = "Orangephoenix8!";
-$db_name = "to-do-lists";
+class ToDoLists {
+    private $server;
+    private $localhost;
+    private $db_pass;
+    private $db_name;
 
-mysql_connect($server, $db_user, $db_pass) or die("Could not connect to server!");
-mysql_select_db($db_name) or die("Could not connect to database!");
+    public function __construct() {
+        $this->server = "localhost";
+        $this->db_user = "root";
+        $this->db_pass = "Orangephoenix8!";
+        $this->db_name = "to-do-lists";
+    }
+
+    public function connect() {
+        mysql_connect($this->server, $this->db_user, $this->db_pass) or die("Could not connect to server!");
+        mysql_select_db($this->db_name) or die("Could not connect to database!");
+    }
+}
+
+    
+
+
