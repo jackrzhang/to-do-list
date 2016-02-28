@@ -34,7 +34,7 @@
             </ul>
         </div>
         <form class="add-new-task" autocomplete="off">
-            <input type="text" name="new-task" placeholder="Add a new task..." />
+            <input type="text" class="new-task-input" name="new-task" placeholder="Type a new task and press ENTER to add..." />
         </form>
     </div>
 

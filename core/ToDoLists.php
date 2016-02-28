@@ -26,6 +26,10 @@ class ToDoLists {
 
         $results = $this->DB->run('SELECT * FROM tasks WHERE task=:task AND date=:date AND time=:time LIMIT 1', $bind);
 
+        if (!isset($results[0])) {
+            return false;
+        }
+        
         echo 
         '<li>
             <span>' . $results[0]['task'] . '</span>

@@ -9,13 +9,19 @@ function add_task() {
         var new_task = $('.add-new-task input[name=new-task]').val();
 
         if(new_task != ''){
+            // reset task input
+            $('.new-task-input').val('');
+
+            // AJAX post
             post_dataType_html('../ajax/add-task', { task: new_task },
                 function(response) { 
                     $(response).appendTo('.task-list ul').hide().fadeIn();
+                    $(".add_new_task").trigger("reset");
                     console.log('Task added.');
                 }
             );
         }
+
         return false; // Ensure that the form does not submit twice
     });
 }
