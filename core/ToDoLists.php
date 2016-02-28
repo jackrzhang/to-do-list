@@ -1,69 +1,75 @@
 <?php
-namespace core;
 
 class ToDoLists {
-    private $server;
-    private $localhost;
-    private $db_pass;
-    private $db_name;
 
+    private $DB;
+
+    // Constructor - handles DB connection
     public function __construct() {
-        $this->server = "localhost";
-        $this->db_user = "root";
-        $this->db_pass = "Orangephoenix8!";
-        $this->db_name = "to-do-lists";
+        // MySQL database connection configuration
+        $host = "localhost";
+        $port = "3306";
+        $db_user = "root";
+        $db_pass = "Orangephoenix8!";
+        $db_name = "to-do-lists";
+
+        $dsn = 'mysql:host=' . $host . ';port=' . $port . ';dbname=' . $db_name;
+        $this->DB = new DB($dsn, $db_user, $db_pass);
     }
 
-    public function connect() {
-        mysql_connect($this->server, $this->db_user, $this->db_pass) or die("Could not connect to server!");
-        mysql_select_db($this->db_name) or die("Could not connect to database!");
+    private function display_task($task, $date, $time) {
+        $bind = [ 
+            'task' => $task, 
+            'date' => $date,
+            'time' => $time
+        ];
+
+        $results = $this->DB->run('SELECT * FROM tasks WHERE task=:task AND date=:date AND time=:time LIMIT 1', $bind);
+
+        echo 
+        '<li>
+            <span>' . $results[0]['task'] . '</span>
+            <img id="' . $results[0]['id'] . '" class="delete-button" width="10px" src="images/close.svg" />
+        </li>';
     }
 
-    public function close() {
-        mysql_close();
-    }
+    public function display_all_tasks() {
+        $results = $this->DB->run('SELECT * FROM tasks ORDER BY date ASC, time ASC');
 
-    public function display_tasks() {
-        $query = mysql_query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
-        $numrows = mysql_num_rows($query);
+        if (!isset($results[0])) {
+            return false;
+        }
 
-        if ($numrows > 0) {
-            while ($row = mysql_fetch_assoc($query)) {
-                $task_id = $row['id'];
-                $task_name = $row['task'];
+        foreach ($results as $task) {
+            $task_id = $task['id'];
+            $task_name = $task['task'];
 
-                echo 
-                '<li>
-                    <span>'.$task_name.'</span>
-                    <img id="'.$task_id.'" class="delete-button" width="10px" src="images/close.svg" />
-                </li>';
-            }
+            echo 
+            '<li>
+                <span>' . $task_name . '</span>
+                <img id="' . $task_id . '" class="delete-button" width="10px" src="images/close.svg" />
+            </li>';
         }
     }
 
     public function add_task($task, $date, $time) {
-        mysql_query("INSERT INTO `tasks` (`id`, `task`, `date`, `time`) VALUES (NULL, '$task', '$date', '$time');");
+        $bind = [ 
+            'task' => $task, 
+            'date' => $date,
+            'time' => $time
+        ];
+
+        $this->DB->run('INSERT INTO tasks (id, task, date, time) VALUES (NULL, :task, :date, :time)', $bind);
+        $this->display_task($task, $date, $time);
     }
 
     public function delete_task($task_id) {
-        mysql_query("DELETE FROM `tasks` WHERE `tasks`.`id`=$task_id");
-    }   
-
-    public function query_task($task, $date, $time) {
-        $query = mysql_query("SELECT * FROM tasks WHERE task='$task' AND date='$date' AND time='$time'");
-
-        while ($row = mysql_fetch_assoc($query)) {
-            $task_id = $row['id'];
-            $task_name = $row['task'];
-        }
-
-        $result = [
-            'task_id' => $task_id,
-            'task_name' => $task_name
+        $bind = [ 
+            'task_id' => $task_id
         ];
 
-        return $result;
-    }
+        $this->DB->run('DELETE FROM tasks WHERE tasks.id=:task_id', $bind);
+    }   
 }
 
     

@@ -1,7 +1,3 @@
-<?php 
-require_once('../core/ToDoLists.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,11 +25,11 @@ require_once('../core/ToDoLists.php');
     <div class="wrap">
         <div class="task-list">
             <ul>
-                <?php           
-                $tasks = new \core\ToDoLists();
-                $tasks->connect();
-                $tasks->display_tasks();
-                $tasks->close();
+                <?php 
+                require_once('../core/ToDoLists.php');
+                require_once('../core/DB.php');
+                $tasks = new ToDoLists();
+                $tasks->display_all_tasks();
                 ?>
             </ul>
         </div>

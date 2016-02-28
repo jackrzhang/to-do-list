@@ -1,24 +1,13 @@
 <?php 
 require_once('../../core/ToDoLists.php');
+require_once('../../core/DB.php');
 
 // Set timezone in case it is not configured in php.ini
 date_default_timezone_set('America/New_York');
 
 $task = strip_tags( $_POST['task'] );
-$date = date('Y-m-d'); // Today%u2019s date
-$time = date('H:i:s'); // Current time
+$date = date('Y-m-d');
+$time = date('H:i:s');
 
-$tasks = new \core\ToDoLists();
-$tasks->connect();
+$tasks = new ToDoLists();
 $tasks->add_task($task, $date, $time);
-$result = $tasks->query_task($task, $date, $time);
-$tasks->close();
-
-//print_r($result);
-
-// html response
-echo 
-'<li>
-    <span>' . $result[task_name] . '</span>
-    <img id="' . $result[task_id] . '" class="delete-button" width="10px" src="images/close.svg" />
-</li>';
