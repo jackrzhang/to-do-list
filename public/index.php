@@ -26,9 +26,9 @@
         <div class="task-list">
             <ul>
                 <?php 
-                require_once('../core/ToDoLists.php');
+                require_once('../core/ToDoList.php');
                 require_once('../core/DB.php');
-                $tasks = new ToDoLists();
+                $tasks = new ToDoList();
                 $tasks->display_all_tasks();
                 ?>
             </ul>
