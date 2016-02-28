@@ -8,10 +8,13 @@
     <meta name="description" content="Simple to-do list application.">
     <meta name="author" content="jackrzhang">
 
-    <title>To-Do Lists</title>
+    <title>To-Do List</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- Custom Styles -->
-    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,22 +25,22 @@
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="task-list">
-            <ul>
-                <?php 
-                require_once('../core/ToDoList.php');
-                require_once('../core/DB.php');
-                $tasks = new ToDoList();
-                $tasks->display_all_tasks();
-                ?>
-            </ul>
-        </div>
+    <div class="task-list">
+        <h4>To-Do List</h4>
+
+        <ul>
+            <?php 
+            require_once('../core/ToDoList.php');
+            require_once('../core/DB.php');
+            $tasks = new ToDoList();
+            $tasks->display_all_tasks();
+            ?>
+        </ul>
+
         <form class="add-new-task" autocomplete="off">
-            <input type="text" class="new-task-input" name="new-task" placeholder="Type a new task and press ENTER to add..." />
+            <input type="text" class="new-task-input" name="new-task" placeholder="Add a new task by pressing enter." />
         </form>
     </div>
-
 
     <!-- jQuery -->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>

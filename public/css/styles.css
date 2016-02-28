@@ -1,63 +1,88 @@
 @import "reset.css";
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
-
-body { 
-    font: normal 14px 'Open Sans', Arial, sans-serif;
-    color: #999;
-    background: #f1f1f1;
+@font-face {
+    font-family: "Raleway";
+    src: url(../fonts/Raleway-Thin.ttf) format("truetype");
 }
 
-.wrap {
-    width: 400px;
-    margin: 0 auto;
+body { 
+    background-color: #f5f5f5;
+    font-family: "Raleway", Arial;
+    font-weight: 900;
 }
 
 .task-list {
-    width: 88%;
-    min-height: 300px;
-    background: #fff;
-    box-shadow: 2px 2px 0px #ddd;
-    margin-top: 40px;
-    padding: 22px 6%;
+    font-size: 17px;
+    color: #555;
+    background-color: white;
+    padding: 0 !important;
+    width: 550px;
+    border: 1px solid #dedede;
+    border-radius: 25px;
+    margin: 7% auto 0;
 }
 
-.task-list li {
-    font-size: 1.2em;
-    padding: 8px 0;
+.task-list h4 {
+    color: #cd0000;
+    font-size: 50px;
+    text-align: center;
+    padding: 35px 0 15px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.task-list ul {
+
+}
+
+.task-list ul li {
+    list-style: none;
+    border-bottom: 1px dotted #ccc;
+    height: 42px;
+    line-height: 46px;
+    text-align: left;
     overflow: hidden;
 }
 
-.task-list li span {
-    width: 86%;
+.task-list ul li:hover {
+  background-color: #f0f0f0;
+  -webkit-transition: all 0.3s;
+  -moz-transition:    all 0.3s;
+  -ms-transition:     all 0.3s;
+  -o-transition:      all 0.3s;
+}
+
+.task-list ul li span {
+    width: 80%;
     white-space: nowrap;
     overflow: hidden;
+    text-indent: 30px;
     text-overflow: ellipsis;
     float: left;
 }
 
-.task-list li .delete-button {
-    width: 10px;
-    height: auto;
-    padding-top: 7px;
+.task-list ul li .fa-trash-o {
+    font-size: 16px;
+    width: 13px;
+    margin: 13px 10px;
     float: right;
-    vertical-align: top;
+    text-align: center;
     opacity: 0.5;
     cursor: pointer;
 }
 
-.task-list li .delete-button:hover {
-    opacity: 0.85;
+.task-list ul li .fa-trash-o:hover {
+    opacity: 1;
+    -webkit-transition: all 0.4s;
+    -moz-transition:    all 0.4s;
+    -ms-transition:     all 0.4s;
+    -o-transition:      all 0.4s;
 }
 
-.add-new-task {
-    margin-top: 20px;
-    padding-bottom: 60px;
-}
-
-.add-new-task input[type='text'] {
+.task-list .add-new-task input[type='text'] {
+    font-family: "Raleway", Arial;
+    font-weight: 900;
+    font-size: 17px;
     width: 100%;
-    font: normal 1.2em 'Open Sans', Arial, sans-serif;
     color: #999;
     box-shadow: 2px 2px 0px #ddd;
     border: none;
@@ -70,15 +95,4 @@ body {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-}
-
-:focus {
-    outline: 0;
-}
-
-@media all and (max-width: 425px) {
-    .wrap {
-        width: 90%;
-        margin: 0 auto;
-    }
 }

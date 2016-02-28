@@ -28,12 +28,12 @@ function add_task() {
 
 function delete_task() {
     $('.task-list').on('click', '.delete-button', function() {
-        var current_element = $(this);
-        var id = $(this).attr('id');
+        var selected_task = $(this).parent();
+        var id = selected_task.attr('id');
 
         post_dataType_html('../ajax/delete-task', { task_id: id },
             function(response) { 
-                current_element.parent().fadeOut("fast", function() { $(this).remove(); });
+                selected_task.fadeOut(function() { $(this).remove(); });
                 console.log('Task deleted.');
             }
         );
