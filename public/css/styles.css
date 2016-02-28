@@ -16,7 +16,7 @@ body {
     color: #555;
     background-color: white;
     padding: 0 !important;
-    width: 550px;
+    width: 650px;
     border: 1px solid #dedede;
     border-radius: 25px;
     margin: 7% auto 0;
@@ -60,7 +60,7 @@ body {
     float: left;
 }
 
-.task-list ul li .fa-trash-o {
+.task-list ul li .delete-button {
     font-size: 16px;
     width: 13px;
     margin: 13px 10px;
@@ -70,7 +70,25 @@ body {
     cursor: pointer;
 }
 
-.task-list ul li .fa-trash-o:hover {
+.task-list ul li .delete-button:hover {
+    opacity: 1;
+    -webkit-transition: all 0.4s;
+    -moz-transition:    all 0.4s;
+    -ms-transition:     all 0.4s;
+    -o-transition:      all 0.4s;
+}
+
+.task-list ul li .time-icon {
+    font-size: 16px;
+    width: 13px;
+    margin: 13px 10px;
+    float: right;
+    text-align: center;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.task-list ul li .time-icon:hover {
     opacity: 1;
     -webkit-transition: all 0.4s;
     -moz-transition:    all 0.4s;
