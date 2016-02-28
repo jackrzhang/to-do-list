@@ -41,14 +41,11 @@ class ToDoLists {
         }
 
         foreach ($results as $task) {
-            $task_id = $task['id'];
             $task_name = $task['task'];
+            $task_date = $task['date'];
+            $task_time = $task['time'];
 
-            echo 
-            '<li>
-                <span>' . $task_name . '</span>
-                <img id="' . $task_id . '" class="delete-button" width="10px" src="images/close.svg" />
-            </li>';
+            $this->display_task($task_name, $task_date, $task_time);
         }
     }
 
