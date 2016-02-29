@@ -43,8 +43,15 @@ function deleteTask() {
 
 function checkTask() {
     $('.task-list').on('click', '.check-button', function() {
-        var selectedTaskText = $(this).parent().find('span.task-text');
-        selectedTaskText.toggleClass('checked');
+        var selectedTask = $(this).parent();
+        var id = selectedTask.attr('id');
+
+        post('../ajax/check-task', { task_id: id },
+            function(response) { 
+                selectedTask.find('span.task-text').toggleClass('checked');
+                //console.log('Task checked.');
+            }
+        );
     });
 }
 
