@@ -1,0 +1,19 @@
+Project: To-Do List
+Date: 160227
+Author: jackrzhang
+
+PROBLEM DEFINITION:
+1) Create a simple way to record tasks needed to be done.
+2) Remove, or delete, tasks when they no longer need to be recorded.
+3) Mark or check tasks off as they are completed.
+4) Record and display, if desired, the time during which the tasks are added.
+
+IMPLEMENTATION DETAILS:
+1) MySQL Server
+2) PHP, utilize PDO to connect to MySQL
+3) AJAX requests:
+    a. Add task
+    b. Delete task
+    c. Check task off (toggle)
+4) Single page UI: emulate a notepad with lines
+5) Utilize Font Awesome for intutive buttons
