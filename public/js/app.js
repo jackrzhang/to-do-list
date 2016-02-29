@@ -1,20 +1,20 @@
 
 $(document).ready(function() {
-    add_task();
-    delete_task();
-    check_task();
+    addTask();
+    deleteTask();
+    checkTask();
 });
 
-function add_task() {
+function addTask() {
     $('.add-new-task').submit(function() {
-        var new_task = $('.add-new-task input[name=new-task]').val();
+        var newTask = $('.add-new-task input[name=new-task]').val();
 
-        if(new_task != ''){
+        if(newTask != ''){
             // reset task input
             $('.new-task-input').val('');
 
             // AJAX post
-            post_dataType_html('../ajax/add-task', { task: new_task },
+            post('../ajax/add-task', { task: newTask },
                 function(response) { 
                     $(response).appendTo('.task-list ul').hide().fadeIn();
                     $(".add_new_task").trigger("reset");
@@ -27,28 +27,28 @@ function add_task() {
     });
 }
 
-function delete_task() {
+function deleteTask() {
     $('.task-list').on('click', '.delete-button', function() {
-        var selected_task = $(this).parent();
-        var id = selected_task.attr('id');
+        var selectedTask = $(this).parent();
+        var id = selectedTask.attr('id');
 
-        post_dataType_html('../ajax/delete-task', { task_id: id },
+        post('../ajax/delete-task', { task_id: id },
             function(response) { 
-                selected_task.fadeOut(function() { $(this).remove(); });
+                selectedTask.fadeOut(function() { $(this).remove(); });
                 //console.log('Task deleted.');
             }
         );
     });
 }
 
-function check_task() {
+function checkTask() {
     $('.task-list').on('click', '.check-button', function() {
-        var selected_task_text = $(this).parent().find('span.task-text');
-        selected_task_text.toggleClass('checked');
+        var selectedTaskText = $(this).parent().find('span.task-text');
+        selectedTaskText.toggleClass('checked');
     });
 }
 
-function post_dataType_html(endpoint, data, callback) {
+function post(endpoint, data, callback) {
     $.ajax({
         type: 'post',
         url: endpoint + '.php',
