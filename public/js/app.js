@@ -2,6 +2,7 @@
 $(document).ready(function() {
     add_task();
     delete_task();
+    check_task();
 });
 
 function add_task() {
@@ -17,7 +18,7 @@ function add_task() {
                 function(response) { 
                     $(response).appendTo('.task-list ul').hide().fadeIn();
                     $(".add_new_task").trigger("reset");
-                    console.log('Task added.');
+                    //console.log('Task added.');
                 }
             );
         }
@@ -34,9 +35,16 @@ function delete_task() {
         post_dataType_html('../ajax/delete-task', { task_id: id },
             function(response) { 
                 selected_task.fadeOut(function() { $(this).remove(); });
-                console.log('Task deleted.');
+                //console.log('Task deleted.');
             }
         );
+    });
+}
+
+function check_task() {
+    $('.task-list').on('click', '.check-button', function() {
+        var selected_task_text = $(this).parent().find('span.task-text');
+        selected_task_text.toggleClass('checked');
     });
 }
 
@@ -58,8 +66,8 @@ function post_dataType_html(endpoint, data, callback) {
         },
         success: function(response) {
             if (callback && typeof(callback) === 'function') {
-                console.log('AJAX success.');
                 callback(response);
+                //console.log('AJAX success.');
             } 
         }
     }); 

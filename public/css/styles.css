@@ -18,7 +18,7 @@ body {
     padding: 0 !important;
     width: 650px;
     border: 1px solid #dedede;
-    border-radius: 25px 25px 0 0;
+    border-radius: 15px;
     margin: 7% auto 0;
 }
 
@@ -65,7 +65,7 @@ body {
   -o-transition:      all 0.3s;
 }
 
-.task-list ul li span {
+.task-list ul li .task-text {
     width: 80%;
     white-space: nowrap;
     overflow: hidden;
@@ -74,11 +74,15 @@ body {
     float: left;
 }
 
+.task-list ul li .checked {
+    text-decoration: line-through;
+}
+
 .task-list ul li .delete-button {
     font-size: 16px;
-    color: #003366;
+    color: black;
     width: 13px;
-    margin: 13px 10px;
+    margin: 13px 15px 13px 10px;
     float: right;
     text-align: center;
     opacity: 0.5;
@@ -93,9 +97,9 @@ body {
     -o-transition:      all 0.4s;
 }
 
-.task-list ul li .time-icon {
+.task-list ul li .time-button {
     font-size: 16px;
-    color: black;
+    color: #003366;
     width: 13px;
     margin: 13px 10px;
     float: right;
@@ -104,12 +108,42 @@ body {
     cursor: pointer;
 }
 
-.task-list ul li .time-icon:hover {
+.task-list ul li .time-button:hover {
     opacity: 1;
     -webkit-transition: all 0.4s;
     -moz-transition:    all 0.4s;
     -ms-transition:     all 0.4s;
     -o-transition:      all 0.4s;
+}
+
+.task-list ul li .check-button {
+    font-size: 16px;
+    color: #36ba99;
+    width: 13px;
+    margin: 13px 10px;
+    float: right;
+    text-align: center;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.task-list ul li .check-button:hover {
+    opacity: 1;
+    -webkit-transition: all 0.4s;
+    -moz-transition:    all 0.4s;
+    -ms-transition:     all 0.4s;
+    -o-transition:      all 0.4s;
+}
+
+.task-list .credit {
+    font-size: 13px;
+    color: black;
+    padding: 20px 0 10px;
+    width: 100%;
+    border: none;
+    border-top: 1px dotted #ccc;
+    text-align: center;
+    display: block;
 }
 
 ::-webkit-input-placeholder {
