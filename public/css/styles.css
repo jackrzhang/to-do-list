@@ -18,7 +18,7 @@ body {
     padding: 0 !important;
     width: 650px;
     border: 1px solid #dedede;
-    border-radius: 25px;
+    border-radius: 25px 25px 0 0;
     margin: 7% auto 0;
 }
 
@@ -26,17 +26,31 @@ body {
     color: #cd0000;
     font-size: 50px;
     text-align: center;
-    padding: 35px 0 15px;
-    border-bottom: 1px dotted #ccc;
+    padding: 40px 0 20px;
 }
 
-.task-list ul {
-
+.task-list .add-new-task input[type='text'] {
+    font-family: "Raleway", Arial;
+    font-weight: 900;
+    font-size: 17px;
+    color: #699CDB;
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    border-radius: none;
+    display: block;
+    padding: 12px 6% 12px 30px ;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 .task-list ul li {
     list-style: none;
-    border-bottom: 1px dotted #ccc;
+    border-top: 1px dotted #ccc;
     height: 42px;
     line-height: 46px;
     text-align: left;
@@ -62,6 +76,7 @@ body {
 
 .task-list ul li .delete-button {
     font-size: 16px;
+    color: #003366;
     width: 13px;
     margin: 13px 10px;
     float: right;
@@ -80,6 +95,7 @@ body {
 
 .task-list ul li .time-icon {
     font-size: 16px;
+    color: black;
     width: 13px;
     margin: 13px 10px;
     float: right;
@@ -96,21 +112,15 @@ body {
     -o-transition:      all 0.4s;
 }
 
-.task-list .add-new-task input[type='text'] {
-    font-family: "Raleway", Arial;
-    font-weight: 900;
-    font-size: 17px;
-    width: 100%;
-    color: #999;
-    box-shadow: 2px 2px 0px #ddd;
-    border: none;
-    border-radius: none;
-    display: block;
-    padding: 12px 6%;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+::-webkit-input-placeholder {
+    color: #a5c3e9;
+}
+:-moz-placeholder {
+    color: #a5c3e9;
+}
+::-moz-placeholder {
+    color: #a5c3e9;
+}
+:-ms-input-placeholder {
+    color: #a5c3e9;
 }

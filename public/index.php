@@ -28,6 +28,10 @@
     <div class="task-list">
         <h4>To-Do List</h4>
 
+        <form class="add-new-task" autocomplete="off">
+            <input type="text" class="new-task-input" name="new-task" placeholder="Type here and press enter to add a new task." />
+        </form>
+
         <ul>
             <?php 
             require_once('../core/ToDoList.php');
@@ -36,10 +40,6 @@
             $tasks->display_all_tasks();
             ?>
         </ul>
-
-        <form class="add-new-task" autocomplete="off">
-            <input type="text" class="new-task-input" name="new-task" placeholder="Add a new task by pressing enter." />
-        </form>
     </div>
 
     <!-- jQuery -->
