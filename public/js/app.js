@@ -16,8 +16,7 @@ function addTask() {
             // AJAX post
             post('../ajax/add-task', { task: newTask },
                 function(response) { 
-                    $(response).appendTo('.task-list ul').hide().fadeIn();
-                    $(".add_new_task").trigger("reset");
+                    $(response).appendTo('.task-list ul');
                     //console.log('Task added.');
                 }
             );
@@ -34,7 +33,7 @@ function deleteTask() {
 
         post('../ajax/delete-task', { task_id: id },
             function(response) { 
-                selectedTask.fadeOut(function() { $(this).remove(); });
+                selectedTask.hide(function() { $(this).remove(); });
                 //console.log('Task deleted.');
             }
         );

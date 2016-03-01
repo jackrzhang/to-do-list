@@ -57,14 +57,15 @@ body {
     line-height: 46px;
     text-align: left;
     overflow: hidden;
+    -webkit-transition: all .25s ease-out 0s;
+    -moz-transition: all .25s ease-out 0s;
+    -ms-transition: all .25s ease-out 0s;
+    -o-transition: all .25s ease-out 0s;
+    transition: all .25s ease-out 0s;
 }
 
 .task-list ul li:hover {
   background-color: #f0f0f0;
-  -webkit-transition: all 0.3s;
-  -moz-transition:    all 0.3s;
-  -ms-transition:     all 0.3s;
-  -o-transition:      all 0.3s;
 }
 
 .task-list ul li .task-text {
@@ -89,14 +90,15 @@ body {
     text-align: center;
     opacity: 0.5;
     cursor: pointer;
+    -webkit-transition: all .25s ease-out 0s;
+    -moz-transition: all .25s ease-out 0s;
+    -ms-transition: all .25s ease-out 0s;
+    -o-transition: all .25s ease-out 0s;
+    transition: all .25s ease-out 0s;
 }
 
 .task-list ul li .delete-button:hover {
     opacity: 1;
-    -webkit-transition: all 0.4s;
-    -moz-transition:    all 0.4s;
-    -ms-transition:     all 0.4s;
-    -o-transition:      all 0.4s;
 }
 
 .task-list ul li .check-button {
@@ -108,14 +110,15 @@ body {
     text-align: center;
     opacity: 0.5;
     cursor: pointer;
+    -webkit-transition: all .25s ease-out 0s;
+    -moz-transition: all .25s ease-out 0s;
+    -ms-transition: all .25s ease-out 0s;
+    -o-transition: all .25s ease-out 0s;
+    transition: all .25s ease-out 0s;
 }
 
 .task-list ul li .check-button:hover {
     opacity: 1;
-    -webkit-transition: all 0.4s;
-    -moz-transition:    all 0.4s;
-    -ms-transition:     all 0.4s;
-    -o-transition:      all 0.4s;
 }
 
 .task-list ul li .time-info {
@@ -144,14 +147,15 @@ body {
     float: right;
     text-align: center;
     opacity: 0.5;
+    -webkit-transition: all .25s ease-out 0s;
+    -moz-transition: all .25s ease-out 0s;
+    -ms-transition: all .25s ease-out 0s;
+    -o-transition: all .25s ease-out 0s;
+    transition: all .25s ease-out 0s;
 }
 
 .task-list ul li .time-button:hover {
     opacity: 1;
-    -webkit-transition: all 0.4s;
-    -moz-transition:    all 0.4s;
-    -ms-transition:     all 0.4s;
-    -o-transition:      all 0.4s;
 }
 
 .task-list .credit {
