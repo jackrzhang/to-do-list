@@ -16,7 +16,7 @@ function addTask() {
             // AJAX post
             post('../ajax/add-task', { task: newTask },
                 function(response) { 
-                    $(response).appendTo('.task-list ul');
+                    $(response).appendTo('.task-list ul').hide().fadeIn();
                     //console.log('Task added.');
                 }
             );
