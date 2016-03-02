@@ -2,5 +2,4 @@
 
 A simple, elegant, and intuitive to-do-list. Built on a native MAMP stack.
 
-To run on your own machine, import `to-do-list.sql`, and configure settings within `core/ToDoList.php`.
-
+To run on your own machine, import `to-do-list.sql`, and create `core/config.php` to set global variables - see `core/ToDoList.php`, line 10.
