@@ -1,4 +1,5 @@
 <?php
+require_once('config.php');
 
 class ToDoList {
 
@@ -6,11 +7,11 @@ class ToDoList {
 
     // Constructor - handles DB connection
     public function __construct() {
-        // MySQL database connection configuration - modify as necessary
-        $host = "localhost";
-        $port = "3306";
-        $db_user = "root";
-        $db_pass = "";
+        // To configure your MySQL database connection, create core/config.php and set the global variables below.
+        $host = $GLOBALS['config_host'];
+        $port = $GLOBALS['config_port'];
+        $db_user = $GLOBALS['config_db_user'];
+        $db_pass = $GLOBALS['config_db_pass'];
         $db_name = "to-do-list";
 
         $dsn = 'mysql:host=' . $host . ';port=' . $port . ';dbname=' . $db_name;
