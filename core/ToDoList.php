@@ -18,6 +18,7 @@ class ToDoList {
         $this->DB = new DB($dsn, $db_user, $db_pass);
     }
 
+    // Take in specific task information, run SQL query, and display the task
     private function display_task($task, $date, $time, $checked) {
         $bind = [ 
             'task' => $task, 
@@ -48,6 +49,7 @@ class ToDoList {
         </li>';
     }
 
+    // Calls display_task for each task in the database
     public function display_all_tasks() {
         $results = $this->DB->run('SELECT * FROM tasks ORDER BY date ASC, time ASC');
 
@@ -65,6 +67,7 @@ class ToDoList {
         }
     }
 
+    // Insert task into database, display task in view
     public function add_task($task, $date, $time) {
         $bind = [ 
             'task' => $task, 
@@ -76,6 +79,7 @@ class ToDoList {
         $this->display_task($task, $date, $time, 0);
     }
 
+    // Delete task from database
     public function delete_task($task_id) {
         $bind = [ 
             'task_id' => $task_id
@@ -84,6 +88,7 @@ class ToDoList {
         $this->DB->run('DELETE FROM tasks WHERE tasks.id=:task_id', $bind);
     }   
 
+    // Check/uncheck task by updating the 'checked' column
     public function check_task($task_id) {
         $bind = [ 
             'task_id' => $task_id
