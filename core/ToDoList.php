@@ -7,17 +7,18 @@ class ToDoList {
 
     // Constructor - handles DB connection
     public function __construct() {
-        // To configure your MySQL database connection, create core/config.php and set the global variables below.
-        $host = $GLOBALS['config_host'];
-        $port = $GLOBALS['config_port'];
-        $db_user = $GLOBALS['config_db_user'];
-        $db_pass = $GLOBALS['config_db_pass'];
+        // To configure your MySQL database connection, create core/config.php and initialize the global constants, or simply set the variables below.
+        $host = DB_HOST;
+        $port = DB_PORT;
+        $db_user = DB_USER;
+        $db_pass = DB_PASS;
         $db_name = "to-do-list";
 
         $dsn = 'mysql:host=' . $host . ';port=' . $port . ';dbname=' . $db_name;
         $this->DB = new DB($dsn, $db_user, $db_pass);
     }
 
+    // Take in specific task information, run SQL query, and display the task
     private function display_task($task, $date, $time, $checked) {
         $bind = [ 
             'task' => $task, 
@@ -48,6 +49,7 @@ class ToDoList {
         </li>';
     }
 
+    // Calls display_task for each task in the database
     public function display_all_tasks() {
         $results = $this->DB->run('SELECT * FROM tasks ORDER BY date ASC, time ASC');
 
@@ -65,6 +67,7 @@ class ToDoList {
         }
     }
 
+    // Insert task into database, display task in view
     public function add_task($task, $date, $time) {
         $bind = [ 
             'task' => $task, 
@@ -76,6 +79,7 @@ class ToDoList {
         $this->display_task($task, $date, $time, 0);
     }
 
+    // Delete task from database
     public function delete_task($task_id) {
         $bind = [ 
             'task_id' => $task_id
@@ -84,6 +88,7 @@ class ToDoList {
         $this->DB->run('DELETE FROM tasks WHERE tasks.id=:task_id', $bind);
     }   
 
+    // Check/uncheck task by updating the 'checked' column
     public function check_task($task_id) {
         $bind = [ 
             'task_id' => $task_id
