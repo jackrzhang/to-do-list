@@ -7,11 +7,11 @@ class ToDoList {
 
     // Constructor - handles DB connection
     public function __construct() {
-        // To configure your MySQL database connection, create core/config.php and set the global variables below.
-        $host = $GLOBALS['config_host'];
-        $port = $GLOBALS['config_port'];
-        $db_user = $GLOBALS['config_db_user'];
-        $db_pass = $GLOBALS['config_db_pass'];
+        // To configure your MySQL database connection, create core/config.php and initialize the global constants, or simply set the variables below.
+        $host = DB_HOST;
+        $port = DB_PORT;
+        $db_user = DB_USER;
+        $db_pass = DB_PASS;
         $db_name = "to-do-list";
 
         $dsn = 'mysql:host=' . $host . ';port=' . $port . ';dbname=' . $db_name;
