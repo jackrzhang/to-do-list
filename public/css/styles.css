@@ -147,6 +147,7 @@ body {
     float: right;
     text-align: center;
     opacity: 0.5;
+    cursor: pointer;
     -webkit-transition: all .25s ease-out 0s;
     -moz-transition: all .25s ease-out 0s;
     -ms-transition: all .25s ease-out 0s;
