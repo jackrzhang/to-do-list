@@ -10,11 +10,14 @@
 
     <title>To-Do List</title>
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico?v=~|VERSION|~">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=~|VERSION|~">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,7 +53,7 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
     <!-- Application Javascript -->
-    <script src="js/app.js"></script>
+    <script src="js/app.js?v=~|VERSION|~"></script>
 </body>
 
 </html>
