@@ -11,6 +11,7 @@ body {
     font-weight: 900;
 }
 
+/* Tablets & Desktops (mobile-second) */
 .task-list {
     font-size: 17px;
     color: #555;
@@ -182,3 +183,43 @@ body {
 :-ms-input-placeholder {
     color: #a5c3e9;
 }
+
+/* Mobile */
+@media (max-width: 750px) {
+    .task-list {
+        font-size: 14px;
+        width: 100%;
+        min-width: 320px;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .task-list h4 {
+        font-size: 35px;
+    }
+
+    .task-list .add-new-task input[type='text'] {
+        font-size: 14px;
+        width: 100%;
+        padding: 12px 15px 12px 4%;
+    }
+
+    .task-list ul li .task-text {
+        width: 76%;
+        text-indent: 4%;
+    }
+
+    .task-list ul li .check-button {
+        margin-left: 2%;
+    }
+
+    .task-list ul li .delete-button {
+        margin-right: 4%;
+    }
+
+    /* Remove time functionality in mobile */
+    .task-list ul li .time-button {
+        display: none;
+    }
+}
+
