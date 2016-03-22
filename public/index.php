@@ -45,7 +45,7 @@
         </ul>
 
         <div class="credit">
-            <span>Made with (◠‿◠) by <a href='https://github.com/jackrzhang' target="_newtab">jackrzhang</a></span>
+            <span>Made by <a href='https://github.com/jackrzhang' target="_newtab">jackrzhang</a></span>
         </div>
     </div>
 
